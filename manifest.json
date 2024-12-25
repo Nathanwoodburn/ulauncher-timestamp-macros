@@ -2,7 +2,7 @@
   "required_api_version": "^2.0.0",
   "name": "Timestamp macros",
   "description": "Copy to clipboard the most used timedate formats",
-  "developer_name": "Nurgazy Nazhimidinov",
+  "developer_name": "Nathan Woodburn",
   "icon": "images/icon.png",
   "options": {
     "query_debounce": 0.05
@@ -12,7 +12,7 @@
       "id": "time_kw",
       "type": "keyword",
       "name": "Timemacros",
-      "default_value": "tm"
+      "default_value": "time"
     }
   ]
 }
