@@ -25,6 +25,18 @@ class KeywordQueryEventListener(EventListener):
         # data = event.get_data()
         # print("my event", event.get_keyword())
         # print('{0:%Y-%m-%d}'.format(datetime.datetime.now()))
+
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                        name='Unix Timestamp',
+                                         description='Enter to copy to the clipboard',
+                                         on_enter=CopyToClipboardAction('{0:%s}'.format(datetime.datetime.now()))))
+        
+        items.append(ExtensionResultItem(icon='images/icon.png',
+                                         name='Unix Timestamp (milliseconds)',
+                                         description='Enter to copy to the clipboard',
+                                         on_enter=CopyToClipboardAction('{0:%s}'.format(datetime.datetime.now()))))
+
+
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='YYYY-MM-DD',
                                          description='Enter to copy to the clipboard',
@@ -40,32 +52,7 @@ class KeywordQueryEventListener(EventListener):
                                          name='YYYY-MM-DD HH:mm',
                                          description='Enter to copy to the clipboard',
                                          on_enter=CopyToClipboardAction(
-                                             '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))
-
-        now = datetime.datetime.now()
-        time_intervals = [
-            (0, 3), (3, 6), (6, 9), (9, 12), (12, 15), (15, 18), (18, 21), (21,)
-        ]
-        current_time_interval = ''
-        for i in time_intervals:
-            if i[0] == 21:
-                current_time_interval = '21-24'
-                break
-            if i[0] <= now.hour and now.hour < i[1]:
-                current_time_interval = '{}-{}'.format(i[0], i[1])
-                break
-        items.append(ExtensionResultItem(icon='images/icon.png',
-                                         name='HH1-HH2',
-                                         description='Enter to copy to the clipboard',
-                                         on_enter=CopyToClipboardAction(
-                                             current_time_interval)))
-
-        items.append(ExtensionResultItem(icon='images/icon.png',
-                                         name='HH1-HH2: HH:mm',
-                                         description='Enter to copy to the clipboard',
-                                         on_enter=CopyToClipboardAction(
-                                             '%s: %s' % (current_time_interval,'{0:%H:%M}'.format(datetime.datetime.now())))))
-        
+                                             '{0:%Y-%m-%d %H:%M}'.format(datetime.datetime.now()))))        
         
         return RenderResultListAction(items)
 
