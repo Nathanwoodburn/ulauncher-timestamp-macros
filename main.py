@@ -31,11 +31,6 @@ class KeywordQueryEventListener(EventListener):
                                          description='Enter to copy to the clipboard',
                                          on_enter=CopyToClipboardAction('{0:%s}'.format(datetime.datetime.now()))))
         
-        items.append(ExtensionResultItem(icon='images/icon.png',
-                                         name='Unix Timestamp (milliseconds)',
-                                         description='Enter to copy to the clipboard',
-                                         on_enter=CopyToClipboardAction('{0:%s}'.format(datetime.datetime.now()))))
-
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name='YYYY-MM-DD',
